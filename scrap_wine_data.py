@@ -84,4 +84,3 @@ if __name__ == '__main__':
             with open(output_file, 'w') as f:
                 # Dumps the data
                 json.dump(data, f)
-
