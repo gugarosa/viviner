@@ -1,6 +1,6 @@
 # Viviner: Wine Data Scrapper
 
-*This repository holds all the necessary code to run the an automation robot that extracts strain-related information at [Vivino](https://www.vivino.com).*
+*This repository holds all the necessary code to run the an automation robot that extracts wine-related information at [Vivino](https://www.vivino.com).*
 
 ---
 
