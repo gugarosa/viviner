@@ -31,7 +31,7 @@ We have already dumped all of Vivino's data and made available in both `.json` a
 Initially, one can extract every available wine using the following script:
 
 ```Python
-python scrap_strains_data.py -h
+python scrap_wine_data.py -h
 ```
 
 *Note that `-h` invokes the script helper, which assists users in employing the appropriate parameters.*
