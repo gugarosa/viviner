@@ -42,12 +42,12 @@ if __name__ == '__main__':
 
     print(f'Number of matches: {n_matches}')
 
-    # Creates a dictionary to hold the data
-    data = {}
-    data['wines'] = []
-
     # Iterates through the amount of possible pages
     for i in range(start_page, int(n_matches / c.RECORDS_PER_PAGE) + 1):
+        # Creates a dictionary to hold the data
+        data = {}
+        data['wines'] = []
+
         # Adds the page to the payload
         payload['page'] = i
 
