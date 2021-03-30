@@ -80,7 +80,10 @@ if __name__ == '__main__':
             # Replaces the taste profile
             data['wines'][-1]['taste'] = tastes['tastes']
 
-            # Opens the output .json file
-            with open(output_file, 'w') as f:
-                # Dumps the data
-                json.dump(data, f)
+        # Opens the output .json file
+        with open(f'1_{output_file}', 'w') as f:
+            # Dumps the data
+            json.dump(data, f)
+        
+        # Closes the file
+        f.close()
