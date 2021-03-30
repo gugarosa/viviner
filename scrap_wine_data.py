@@ -33,8 +33,26 @@ if __name__ == '__main__':
 
     # Defines the payload, i.e., filters to be used on the search
     payload = {
-        "min_rating": 0
+        "country_codes[]": "br",
+        # "food_ids[]": 20,
+        # "grape_ids[]": 3,
+        # "grape_filter": "varietal",
+        "min_rating": 3.7,
+        # "order_by": "ratings_average",
+        # "order": "desc",
+        # "price_range_min": 25,
+        # "price_range_max": 100,
+        # "region_ids[]": 383,
+        # "wine_style_ids[]": 98,
+        # "wine_type_ids[]": 1,
+        # "wine_type_ids[]": 2,
+        # "wine_type_ids[]": 3,
+        # "wine_type_ids[]": 4,
+        # "wine_type_ids[]": 7,
+        # "wine_type_ids[]": 24,
     }
+
+    https://www.vivino.com/api/explore/explore?country_code=BR&country_codes[]=br&currency_code=BRL&grape_filter=varietal&min_rating=3.5&order_by=ratings_average&order=desc&page=1&price_range_max=100&price_range_min=25&wine_type_ids[]=1&wine_type_ids[]=2
 
     # Performs an initial request to get the number of records (wines)
     res = r.get('explore/explore?', params=payload)
