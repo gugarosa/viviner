@@ -81,7 +81,7 @@ if __name__ == '__main__':
             data['wines'][-1]['taste'] = tastes['tastes']
 
         # Opens the output .json file
-        with open(f'1_{output_file}', 'w') as f:
+        with open(f'{i}_{output_file}', 'w') as f:
             # Dumps the data
             json.dump(data, f)
         
