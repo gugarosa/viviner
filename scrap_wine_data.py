@@ -52,8 +52,6 @@ if __name__ == '__main__':
         # "wine_type_ids[]": 24,
     }
 
-    https://www.vivino.com/api/explore/explore?country_code=BR&country_codes[]=br&currency_code=BRL&grape_filter=varietal&min_rating=3.5&order_by=ratings_average&order=desc&page=1&price_range_max=100&price_range_min=25&wine_type_ids[]=1&wine_type_ids[]=2
-
     # Performs an initial request to get the number of records (wines)
     res = r.get('explore/explore?', params=payload)
     n_matches = res.json()['explore_vintage']['records_matched']

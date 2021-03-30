@@ -1,3 +1,5 @@
+"""Module used to provide the wrapped requesting class."""
+
 import requests
 
 
