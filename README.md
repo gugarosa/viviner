@@ -14,13 +14,13 @@ Install all the pre-needed requirements using:
 pip install -r requirements.txt
 ```
 
-<!-- ### (Optional) Download the Data
+### (Optional) Download the Data
 
 We have already dumped all of Vivino's data and made available in both `.json` and `.csv` formats. Note that there might be some missing values as Vivino's database is incomplete for not well-known wines.
 
-* [Vivino Wine Data](https://www.recogna.tech/files/datasets/vivino_wine_data.tar.gz)
+* [Vivino Brazilian Wine Data](https://www.recogna.tech/files/datasets/vivino_br_wine_data.tar.gz)
 
-*The dataset and its additional information is also available at [Kaggle](https://www.kaggle.com/gthrosa)*. -->
+*The dataset and its additional information is also available at [Kaggle](https://www.kaggle.com/gthrosa/vivino-brazilian-wines-metadata)*.
 
 ---
 
