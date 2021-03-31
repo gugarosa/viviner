@@ -1,6 +1,7 @@
 """Module used to merge and export data, and detect duplicates."""
 
 import json
+from itertools import chain, starmap
 
 
 def merge_json_files(file_name, n_files=1):
@@ -39,3 +40,62 @@ def merge_json_files(file_name, n_files=1):
     with open(f'{file_name}', 'w') as f:
         # Dumps the merged data
         json.dump(unique_data, f)
+
+
+def flatten_json_file(json_file):
+    """Flattens a multi-level nested JSON file.
+
+    Args:
+        json_file (str): Name of the file to be loaded and flattened.
+
+    Returns:
+        List containing every flattened record from JSON file.
+
+    """
+
+    def _depack(key, value):
+        # Checks whether value is a dictionary
+        if isinstance(value, dict):
+            # Iterates for every key and value
+            for k, v in value.items():
+                # Creates a new key string
+                new_k = f'{key}_{k}'
+
+                yield new_k, v
+
+        # Checks whether value is a list
+        elif isinstance(value, list):
+            # Iterates through every value
+            for i, v in enumerate(value):
+                # Creates a new key string
+                new_k = f'{key}_{i}'
+
+                yield new_k, v
+
+        # If the key is not nested
+        else:
+            yield key, value
+
+    # Opens the JSON file
+    with open(json_file, 'r') as f:
+        # Loads the JSON file
+        json_data = json.load(f)
+
+    # Instantiates a list that will hold every unpacked data
+    json_data_list = []
+
+    # Iterates through every sample in the data
+    for json_datum in json_data:
+        # Performs an all-time true loop
+        while True:
+            # Unpacks the file
+            json_datum = dict(chain.from_iterable(starmap(_depack, json_datum.items())))
+
+            # Creates a loop-break condition
+            if not any(isinstance(value, (dict, list)) for value in json_datum.values()):
+                break
+
+        # Appends to the list
+        json_data_list.append(json_datum)
+
+    return json_data_list
