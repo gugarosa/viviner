@@ -92,14 +92,17 @@ if __name__ == '__main__':
             # Gathers the full-taste profile from current match
             res = r.get(f'wines/{wine["id"]}/tastes')
             tastes = res.json()
-
-            # Replaces the taste profile
             data['wines'][-1]['taste'] = tastes['tastes']
 
-        # Opens the output .json file
-        with open(f'{i}_{output_file}', 'w') as f:
-            # Dumps the data
-            json.dump(data, f)
+            # Gathers the reviews from current match
+            res = r.get(f'wines/{wine["id"]}/reviews')
+            reviews = res.json()
+            data['wines'][-1]['reviews'] = reviews['reviews']
+
+            # Opens the output .json file
+            with open(f'{i}_{output_file}', 'w') as f:
+                # Dumps the data
+                json.dump(data, f)
         
         # Closes the file
         f.close()
